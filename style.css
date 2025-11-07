@@ -1,0 +1,317 @@
+/* -----------------------------------
+   GLOBAL VARIABLES & THEMES
+----------------------------------- */
+:root {
+  --bg: #fdfdfd;
+  --card: #ffffff;
+  --text: #222;
+  --accent: #ff6b6b;
+  --muted: #6c757d;
+}
+[data-theme="dark"] {
+  --bg: #0d1420;
+  --card: #111b2d;
+  --text: #e9eef7;
+  --accent: #ff8a65;
+  --muted: #a3aec3;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* -----------------------------------
+   NAVBAR
+----------------------------------- */
+.navbar {
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
+}
+.navbar .btn {
+  border-color: rgba(255,255,255,0.3);
+  color: white;
+}
+.navbar .btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* -----------------------------------
+   HERO SECTION
+----------------------------------- */
+.hero {
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  color: white;
+  text-align: center;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+.hero h1 {
+  font-family: 'Lobster', cursive;
+  color: #fff;
+}
+.search-box {
+  max-width: 750px;
+  margin: 20px auto 0;
+}
+.search-input {
+  border: none;
+  border-radius: 30px 0 0 30px !important;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.85);
+  color: #222;
+}
+.search-input::placeholder {
+  color: #555;
+}
+#searchBtn {
+  border-radius: 0 30px 30px 0 !important;
+  background: white;
+  color: #ff6b6b;
+  font-weight: 600;
+}
+#surpriseBtn {
+  border-radius: 30px !important;
+  border-color: white;
+  color: white;
+}
+#surpriseBtn:hover {
+  background: white;
+  color: #ff6b6b;
+}
+
+/* -----------------------------------
+   FILTERS
+----------------------------------- */
+.form-select {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+#resetBtn {
+  border-radius: 20px;
+}
+
+/* -----------------------------------
+   RECIPE SECTION BACKGROUND
+----------------------------------- */
+main.container {
+  background: linear-gradient(180deg, #fffaf5 0%, #f2f7ff 100%);
+  border-radius: 24px;
+  padding: 40px 20px;
+  margin-top: 30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+[data-theme="dark"] main.container {
+  background: linear-gradient(180deg, #1a2433 0%, #111b2d 100%);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.05);
+}
+
+/* -----------------------------------
+   RECIPE CARDS (Normal Layout)
+----------------------------------- */
+.card {
+  border: none;
+  border-radius: 16px;
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+.card img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+.card-body {
+  text-align: center;
+  padding: 1rem;
+}
+.card-title {
+  font-weight: 600;
+  color: var(--text);
+}
+.card-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Favorite heart button */
+.favorite {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 10;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.favorite:hover {
+  transform: scale(1.2);
+  color: var(--accent);
+}
+
+/* -----------------------------------
+   CHIPS (Mood Filters)
+----------------------------------- */
+.chip {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.25);
+  margin: 4px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+.chip:hover {
+  background: white;
+  color: #ff6b6b;
+  border-color: white;
+}
+
+/* -----------------------------------
+   MODAL (Recipe Detail)
+----------------------------------- */
+.modal-content {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  color: var(--text);
+}
+.modal h5 {
+  font-weight: 700;
+}
+.modal h6 {
+  font-weight: 600;
+  margin-top: 10px;
+}
+.modal ul {
+  padding-left: 1.4rem;
+  font-size: 0.95rem;
+}
+#stepViewer button {
+  border-radius: 20px;
+}
+
+/* -----------------------------------
+   LOADER
+----------------------------------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.4);
+  z-index: 1050;
+  color: white;
+}
+.spin {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+}
+.ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 6px solid rgba(255,255,255,0.3);
+  border-top-color: var(--accent);
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* -----------------------------------
+   FUNNY FLOATING QUOTE (Zomato style)
+----------------------------------- */
+/* -----------------------------------
+   FUNNY FLOATING BANNER (Top Notification)
+----------------------------------- */
+.food-quote {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-60px);
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  padding: 14px 28px;
+  z-index: 2000;
+  opacity: 0;
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+.food-quote.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+[data-theme="dark"] .food-quote {
+  background: linear-gradient(135deg, #ff8a65, #ffa931);
+}
+
+
+
+/* -----------------------------------
+   FOOTER
+----------------------------------- */
+footer {
+  margin-top: 60px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 20px;
+}
+
+/* -----------------------------------
+   RESPONSIVE DESIGN
+----------------------------------- */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .card img {
+    height: 180px;
+  }
+}
+@media (max-width: 576px) {
+  .hero {
+    min-height: 45vh;
+    border-radius: 0 0 24px 24px;
+  }
+}
